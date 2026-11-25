@@ -1,0 +1,2967 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "43cb779e",
+   "metadata": {
+    "colab_type": "text",
+    "id": "view-in-github"
+   },
+   "source": [
+    "<a href=\"https://colab.research.google.com/github/ubaid978/SMIT-All-Assigments/blob/main/python_exception_handling_assignment_reference_pattern.ipynb\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f56e5652",
+   "metadata": {
+    "id": "f56e5652"
+   },
+   "source": [
+    "## Write a program to safely convert a user's age into an integer. If the user enters text instead of a number, handle the error and display a suitable message."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "e38d7922",
+   "metadata": {
+    "id": "e38d7922"
+   },
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter your age:  23\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Your age is: 23\n"
+     ]
+    }
+   ],
+   "source": [
+    "try:\n",
+    "    age = int(input(\"Enter your age: \"))\n",
+    "    print(\"Your age is:\", age)\n",
+    "\n",
+    "except ValueError:\n",
+    "    print(\"Invalid input! Please enter numbers only.\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "a7672b09",
+   "metadata": {
+    "id": "a7672b09"
+   },
+   "source": [
+    "## Write a program to calculate the total price of a product from quantity and price. Handle invalid numeric input without crashing the program."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "079deefc",
+   "metadata": {
+    "id": "079deefc"
+   },
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter product quantity:  45\n",
+      "Enter product price:  70000\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Total Price: 3150000.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "try:\n",
+    "    quantity = int(input(\"Enter product quantity: \"))\n",
+    "    price = float(input(\"Enter product price: \"))\n",
+    "\n",
+    "    total = quantity * price\n",
+    "\n",
+    "    print(\"Total Price:\", total)\n",
+    "\n",
+    "except ValueError:\n",
+    "    print(\"Invalid input! Please enter numbers only.\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "082427b0",
+   "metadata": {
+    "id": "082427b0"
+   },
+   "source": [
+    "## Write a program to calculate how much each person should pay for a restaurant bill. Handle invalid input and the situation where the number of people is zero."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "8007107a",
+   "metadata": {
+    "id": "8007107a"
+   },
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter total restaurant bill:  67000\n",
+      "Enter number of people:  10\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Each person should pay: 6700.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "try:\n",
+    "    bill = float(input(\"Enter total restaurant bill: \"))\n",
+    "    people = int(input(\"Enter number of people: \"))\n",
+    "\n",
+    "    if people == 0:\n",
+    "        print(\"Error! Number of people cannot be zero.\")\n",
+    "\n",
+    "    else:\n",
+    "        amount = bill / people\n",
+    "        print(\"Each person should pay:\", amount)\n",
+    "\n",
+    "except ValueError:\n",
+    "    print(\"Invalid input! Please enter numbers only.\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "237282fd",
+   "metadata": {
+    "id": "237282fd"
+   },
+   "source": [
+    "## Write a program to display a product from a list using an index entered by the user. Handle invalid indexes and invalid index input."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "bc5e0827",
+   "metadata": {
+    "id": "bc5e0827"
+   },
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter product index (0-4):  12\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Invalid index! Product not found.\n"
+     ]
+    }
+   ],
+   "source": [
+    "products = [\"Mobile\", \"Laptop\", \"Keyboard\", \"Mouse\", \"Headphones\"]\n",
+    "\n",
+    "try:\n",
+    "    index = int(input(\"Enter product index (0-4): \"))\n",
+    "\n",
+    "    print(\"Selected Product:\", products[index])\n",
+    "\n",
+    "except ValueError:\n",
+    "    print(\"Invalid input! Please enter a number.\")\n",
+    "\n",
+    "except IndexError:\n",
+    "    print(\"Invalid index! Product not found.\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "5c8af5c7",
+   "metadata": {
+    "id": "5c8af5c7"
+   },
+   "source": [
+    "## Write a program to search for a customer's information in a dictionary. Handle the situation when the requested key does not exist."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "451d88c2",
+   "metadata": {
+    "id": "451d88c2"
+   },
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter customer name:  ali\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Customer not found! Please enter a valid name.\n"
+     ]
+    }
+   ],
+   "source": [
+    "customers = {\n",
+    "    \"Ali\": \"03001234567\",\n",
+    "    \"Ahmed\": \"03111234567\",\n",
+    "    \"Sara\": \"03221234567\",\n",
+    "    \"Ayesha\": \"03331234567\"\n",
+    "}\n",
+    "\n",
+    "try:\n",
+    "    name = input(\"Enter customer name: \")\n",
+    "\n",
+    "    print(\"Customer Phone Number:\", customers[name])\n",
+    "\n",
+    "except KeyError:\n",
+    "    print(\"Customer not found! Please enter a valid name.\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "48602562",
+   "metadata": {
+    "id": "48602562"
+   },
+   "source": [
+    "## Write a program to calculate the average of marks entered by a student. Handle invalid marks input and division by zero when no marks are entered."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "ea9fca40",
+   "metadata": {
+    "id": "ea9fca40"
+   },
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter marks separated by spaces:  56\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Total Marks: 56.0\n",
+      "Average Marks: 56.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "try:\n",
+    "    marks = input(\"Enter marks separated by spaces: \")\n",
+    "\n",
+    "    marks = marks.split()\n",
+    "\n",
+    "    total = 0\n",
+    "\n",
+    "    for mark in marks:\n",
+    "        total += float(mark)\n",
+    "\n",
+    "    average = total / len(marks)\n",
+    "\n",
+    "    print(\"Total Marks:\", total)\n",
+    "    print(\"Average Marks:\", average)\n",
+    "\n",
+    "except ValueError:\n",
+    "    print(\"Invalid input! Please enter numbers only.\")\n",
+    "\n",
+    "except ZeroDivisionError:\n",
+    "    print(\"Error! No marks entered.\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "187a1684",
+   "metadata": {
+    "id": "187a1684"
+   },
+   "source": [
+    "## Write a program to calculate an electricity bill. Use `else` to display the bill only when the required input is successfully processed. Handle invalid input.\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "88e6871e",
+   "metadata": {
+    "id": "88e6871e"
+   },
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter electricity units:  56\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Electricity Units: 56.0\n",
+      "Total Electricity Bill: Rs. 840.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "try:\n",
+    "    units = float(input(\"Enter electricity units: \"))\n",
+    "\n",
+    "    bill = units * 15\n",
+    "\n",
+    "except ValueError:\n",
+    "    print(\"Invalid input! Please enter numbers only.\")\n",
+    "\n",
+    "else:\n",
+    "    print(\"Electricity Units:\", units)\n",
+    "    print(\"Total Electricity Bill: Rs.\", bill)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f65324f6",
+   "metadata": {
+    "id": "f65324f6"
+   },
+   "source": [
+    "## Write a program to simulate an ATM withdrawal. Use `finally` to display a message that the ATM transaction process has ended whether the transaction succeeds or fails."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "da6e2a91",
+   "metadata": {
+    "id": "da6e2a91"
+   },
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter withdrawal amount:  70000\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Insufficient balance!\n",
+      "ATM transaction process has ended.\n"
+     ]
+    }
+   ],
+   "source": [
+    "try:\n",
+    "    balance = 5000\n",
+    "\n",
+    "    amount = float(input(\"Enter withdrawal amount: \"))\n",
+    "\n",
+    "    if amount <= 0:\n",
+    "        print(\"Invalid amount! Enter a positive amount.\")\n",
+    "\n",
+    "    elif amount > balance:\n",
+    "        print(\"Insufficient balance!\")\n",
+    "\n",
+    "    else:\n",
+    "        balance = balance - amount\n",
+    "        print(\"Withdrawal successful!\")\n",
+    "        print(\"Remaining Balance:\", balance)\n",
+    "\n",
+    "except ValueError:\n",
+    "    print(\"Invalid input! Please enter numbers only.\")\n",
+    "\n",
+    "finally:\n",
+    "    print(\"ATM transaction process has ended.\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "bacda07a",
+   "metadata": {
+    "id": "bacda07a"
+   },
+   "source": [
+    "## Write a program to open and read a customer file. Handle `FileNotFoundError` when the requested file does not exist."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "adf12452",
+   "metadata": {
+    "id": "adf12452"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Error! Customer file not found.\n"
+     ]
+    }
+   ],
+   "source": [
+    "try:\n",
+    "    file = open(\"customer.txt\", \"r\")\n",
+    "\n",
+    "    data = file.read()\n",
+    "\n",
+    "    print(\"Customer Information:\")\n",
+    "    print(data)\n",
+    "\n",
+    "    file.close()\n",
+    "\n",
+    "except FileNotFoundError:\n",
+    "    print(\"Error! Customer file not found.\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "457f5474",
+   "metadata": {
+    "id": "457f5474"
+   },
+   "source": [
+    "## Write a program to validate a mobile recharge amount. Handle invalid input and reject zero or negative recharge amounts by raising a suitable built-in exception."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "f58ad47d",
+   "metadata": {
+    "id": "f58ad47d"
+   },
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter mobile recharge amount:  700\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Recharge Successful!\n",
+      "Recharge Amount: Rs. 700.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "try:\n",
+    "    amount = float(input(\"Enter mobile recharge amount: \"))\n",
+    "\n",
+    "    if amount <= 0:\n",
+    "        raise ValueError(\"Recharge amount must be greater than zero.\")\n",
+    "\n",
+    "    print(\"Recharge Successful!\")\n",
+    "    print(\"Recharge Amount: Rs.\", amount)\n",
+    "\n",
+    "except ValueError as e:\n",
+    "    print(\"Invalid recharge:\", e)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "64f3950a",
+   "metadata": {
+    "id": "64f3950a"
+   },
+   "source": [
+    "## Write a program to calculate a shopping cart total using product names, prices, and quantities. Handle invalid product names, invalid quantities, and invalid numeric input using appropriate exceptions."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "6a289b8d",
+   "metadata": {
+    "id": "6a289b8d"
+   },
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter product name:  keyboard\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Error: 'Product not found!'\n"
+     ]
+    }
+   ],
+   "source": [
+    "products = {\n",
+    "    \"Mobile\": 50000,\n",
+    "    \"Laptop\": 100000,\n",
+    "    \"Mouse\": 1500,\n",
+    "    \"Keyboard\": 2500\n",
+    "}\n",
+    "\n",
+    "try:\n",
+    "    name = input(\"Enter product name: \")\n",
+    "\n",
+    "    if name not in products:\n",
+    "        raise KeyError(\"Product not found!\")\n",
+    "\n",
+    "    quantity = int(input(\"Enter product quantity: \"))\n",
+    "\n",
+    "    if quantity <= 0:\n",
+    "        raise ValueError(\"Quantity must be greater than zero.\")\n",
+    "\n",
+    "    total = products[name] * quantity\n",
+    "\n",
+    "    print(\"Product Name:\", name)\n",
+    "    print(\"Product Price:\", products[name])\n",
+    "    print(\"Quantity:\", quantity)\n",
+    "    print(\"Total Cart Price: Rs.\", total)\n",
+    "\n",
+    "except KeyError as e:\n",
+    "    print(\"Error:\", e)\n",
+    "\n",
+    "except ValueError as e:\n",
+    "    print(\"Invalid input:\", e)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "4e569903",
+   "metadata": {
+    "id": "4e569903"
+   },
+   "source": [
+    "## Write a program to create a student result system. Store multiple students and their marks. Handle invalid marks and missing student information while continuing to process valid students."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "4dc854bf",
+   "metadata": {
+    "id": "4dc854bf"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Student Name: Ali\n",
+      "Student Marks: 85\n",
+      "Result: Pass\n",
+      "\n",
+      "Student Name: Ahmed\n",
+      "Student Marks: 90\n",
+      "Result: Pass\n",
+      "\n",
+      "Student Name: Sara\n",
+      "Student Marks: 78\n",
+      "Result: Pass\n",
+      "\n",
+      "Student Name: Ayesha\n",
+      "Student Marks: 95\n",
+      "Result: Pass\n"
+     ]
+    }
+   ],
+   "source": [
+    "students = {\n",
+    "    \"Ali\": 85,\n",
+    "    \"Ahmed\": 90,\n",
+    "    \"Sara\": 78,\n",
+    "    \"Ayesha\": 95\n",
+    "}\n",
+    "\n",
+    "for name in students:\n",
+    "    try:\n",
+    "        print(\"\\nStudent Name:\", name)\n",
+    "\n",
+    "        marks = students[name]\n",
+    "\n",
+    "        if not isinstance(marks, (int, float)):\n",
+    "            raise ValueError(\"Invalid marks!\")\n",
+    "\n",
+    "        print(\"Student Marks:\", marks)\n",
+    "\n",
+    "        if marks >= 50:\n",
+    "            print(\"Result: Pass\")\n",
+    "        else:\n",
+    "            print(\"Result: Fail\")\n",
+    "\n",
+    "    except ValueError:\n",
+    "        print(\"Error: Invalid marks for\", name)\n",
+    "\n",
+    "    except KeyError:\n",
+    "        print(\"Error: Student information not found.\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "6d47fd90",
+   "metadata": {
+    "id": "6d47fd90"
+   },
+   "source": [
+    "## Write a program to calculate employee salaries from a list of employee records. Handle missing salary information and invalid salary values without stopping the complete payroll process."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "4315a4d6",
+   "metadata": {
+    "id": "4315a4d6"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Employee Name: Ali\n",
+      "Employee Salary: Rs. 50000.0\n",
+      "----------------------\n",
+      "Employee Name: Ahmed\n",
+      "Employee Salary: Rs. 60000.0\n",
+      "----------------------\n",
+      "Error: Salary information is missing.\n",
+      "----------------------\n",
+      "Error: Invalid salary for Ayesha\n",
+      "----------------------\n",
+      "Employee Name: Usman\n",
+      "Employee Salary: Rs. 45000.0\n",
+      "----------------------\n",
+      "Payroll process completed.\n"
+     ]
+    }
+   ],
+   "source": [
+    "employees = [\n",
+    "    {\"name\": \"Ali\", \"salary\": 50000},\n",
+    "    {\"name\": \"Ahmed\", \"salary\": 60000},\n",
+    "    {\"name\": \"Sara\"},\n",
+    "    {\"name\": \"Ayesha\", \"salary\": \"abc\"},\n",
+    "    {\"name\": \"Usman\", \"salary\": 45000}\n",
+    "]\n",
+    "\n",
+    "for employee in employees:\n",
+    "    try:\n",
+    "        name = employee[\"name\"]\n",
+    "        salary = float(employee[\"salary\"])\n",
+    "\n",
+    "        if salary <= 0:\n",
+    "            raise ValueError(\"Salary must be positive.\")\n",
+    "\n",
+    "        print(\"Employee Name:\", name)\n",
+    "        print(\"Employee Salary: Rs.\", salary)\n",
+    "        print(\"----------------------\")\n",
+    "\n",
+    "    except KeyError:\n",
+    "        print(\"Error: Salary information is missing.\")\n",
+    "        print(\"----------------------\")\n",
+    "\n",
+    "    except ValueError:\n",
+    "        print(\"Error: Invalid salary for\", employee[\"name\"])\n",
+    "        print(\"----------------------\")\n",
+    "\n",
+    "print(\"Payroll process completed.\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "b55f16d7",
+   "metadata": {
+    "id": "b55f16d7"
+   },
+   "source": [
+    "## Write a program to create a restaurant billing system using a menu dictionary. Handle unavailable menu items, invalid quantities, and invalid numeric input."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "id": "3a05b65a",
+   "metadata": {
+    "id": "3a05b65a"
+   },
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter food item:  Pizza\n",
+      "Enter quantity:  200\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "----- Restaurant Bill -----\n",
+      "Food Item: Pizza\n",
+      "Price: Rs. 1200\n",
+      "Quantity: 200\n",
+      "Total Bill: Rs. 240000\n"
+     ]
+    }
+   ],
+   "source": [
+    "menu = {\n",
+    "    \"Burger\": 450,\n",
+    "    \"Fries\": 200,\n",
+    "    \"Pizza\": 1200,\n",
+    "    \"Biryani\": 350,\n",
+    "    \"Cold Drink\": 150\n",
+    "}\n",
+    "\n",
+    "total = 0\n",
+    "\n",
+    "try:\n",
+    "    item = input(\"Enter food item: \")\n",
+    "\n",
+    "    if item not in menu:\n",
+    "        raise KeyError(\"Item is not available in the menu.\")\n",
+    "\n",
+    "    quantity = int(input(\"Enter quantity: \"))\n",
+    "\n",
+    "    if quantity <= 0:\n",
+    "        raise ValueError(\"Quantity must be greater than zero.\")\n",
+    "\n",
+    "    total = menu[item] * quantity\n",
+    "\n",
+    "    print(\"\\n----- Restaurant Bill -----\")\n",
+    "    print(\"Food Item:\", item)\n",
+    "    print(\"Price: Rs.\", menu[item])\n",
+    "    print(\"Quantity:\", quantity)\n",
+    "    print(\"Total Bill: Rs.\", total)\n",
+    "\n",
+    "except KeyError as e:\n",
+    "    print(\"Error:\", e)\n",
+    "\n",
+    "except ValueError as e:\n",
+    "    print(\"Invalid input:\", e)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "9188dfd4",
+   "metadata": {
+    "id": "9188dfd4"
+   },
+   "source": [
+    "## Write a program to read sales records from a text file and calculate total sales. Handle a missing file and invalid records separately."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "id": "90ebf61b",
+   "metadata": {
+    "id": "90ebf61b"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Error! Sales file not found.\n"
+     ]
+    }
+   ],
+   "source": [
+    "total_sales = 0\n",
+    "\n",
+    "try:\n",
+    "    file = open(\"sales.txt\", \"r\")\n",
+    "\n",
+    "    for line in file:\n",
+    "        try:\n",
+    "            sale = float(line.strip())\n",
+    "            total_sales += sale\n",
+    "\n",
+    "        except ValueError:\n",
+    "            print(\"Invalid sales record:\", line.strip())\n",
+    "\n",
+    "    file.close()\n",
+    "\n",
+    "    print(\"Total Sales: Rs.\", total_sales)\n",
+    "\n",
+    "except FileNotFoundError:\n",
+    "    print(\"Error! Sales file not found.\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "5608a2d1",
+   "metadata": {
+    "id": "5608a2d1"
+   },
+   "source": [
+    "## Write a program using functions to validate a customer's registration information. Handle invalid age, invalid email information, and missing required data with appropriate exceptions."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "id": "711a02c1",
+   "metadata": {
+    "id": "711a02c1"
+   },
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter customer name:  bilal\n",
+      "Enter customer age:  21\n",
+      "Enter customer email:  bilalgmail.com\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Registration Error: Invalid email address.\n"
+     ]
+    }
+   ],
+   "source": [
+    "def validate_customer(name, age, email):\n",
+    "\n",
+    "    try:\n",
+    "        if name == \"\" or age == \"\" or email == \"\":\n",
+    "            raise ValueError(\"Required information is missing.\")\n",
+    "\n",
+    "        age = int(age)\n",
+    "\n",
+    "        if age <= 0:\n",
+    "            raise ValueError(\"Invalid age! Age must be greater than zero.\")\n",
+    "\n",
+    "        if \"@\" not in email or \".\" not in email:\n",
+    "            raise ValueError(\"Invalid email address.\")\n",
+    "\n",
+    "        print(\"Customer Registration Successful!\")\n",
+    "        print(\"Name:\", name)\n",
+    "        print(\"Age:\", age)\n",
+    "        print(\"Email:\", email)\n",
+    "\n",
+    "    except ValueError as e:\n",
+    "        print(\"Registration Error:\", e)\n",
+    "\n",
+    "\n",
+    "try:\n",
+    "    name = input(\"Enter customer name: \")\n",
+    "    age = input(\"Enter customer age: \")\n",
+    "    email = input(\"Enter customer email: \")\n",
+    "\n",
+    "    validate_customer(name, age, email)\n",
+    "\n",
+    "except Exception:\n",
+    "    print(\"Something went wrong!\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "126819e9",
+   "metadata": {
+    "id": "126819e9"
+   },
+   "source": [
+    "## Write a program that accepts a list of numbers and performs several calculations. Handle `ValueError`, `TypeError`, `ZeroDivisionError`, and other appropriate exceptions separately."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "id": "a9dbbc8c",
+   "metadata": {
+    "id": "a9dbbc8c"
+   },
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter numbers separated by spaces:  45\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "----- Number Calculations -----\n",
+      "Total: 45.0\n",
+      "Average: 45.0\n",
+      "Highest Number: 45\n",
+      "Lowest Number: 45\n"
+     ]
+    }
+   ],
+   "source": [
+    "try:\n",
+    "    numbers = input(\"Enter numbers separated by spaces: \")\n",
+    "\n",
+    "    numbers = numbers.split()\n",
+    "\n",
+    "    total = 0\n",
+    "\n",
+    "    for num in numbers:\n",
+    "        total += float(num)\n",
+    "\n",
+    "    average = total / len(numbers)\n",
+    "\n",
+    "    highest = max(numbers, key=float)\n",
+    "    lowest = min(numbers, key=float)\n",
+    "\n",
+    "    print(\"\\n----- Number Calculations -----\")\n",
+    "    print(\"Total:\", total)\n",
+    "    print(\"Average:\", average)\n",
+    "    print(\"Highest Number:\", highest)\n",
+    "    print(\"Lowest Number:\", lowest)\n",
+    "\n",
+    "except ValueError:\n",
+    "    print(\"ValueError: Please enter valid numbers.\")\n",
+    "\n",
+    "except TypeError:\n",
+    "    print(\"TypeError: Invalid data type.\")\n",
+    "\n",
+    "except ZeroDivisionError:\n",
+    "    print(\"ZeroDivisionError: No numbers entered.\")\n",
+    "\n",
+    "except Exception as e:\n",
+    "    print(\"Other Error:\", e)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "db3ea198",
+   "metadata": {
+    "id": "db3ea198"
+   },
+   "source": [
+    "## Write a program to process customer records stored in nested dictionaries and lists. Handle missing dictionary keys, invalid list indexes, and incorrect data types."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "id": "d74d5597",
+   "metadata": {
+    "id": "d74d5597"
+   },
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter customer ID:  Ali\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Error: Customer information not found.\n"
+     ]
+    }
+   ],
+   "source": [
+    "customers = {\n",
+    "    \"Customer1\": {\n",
+    "        \"name\": \"Ali\",\n",
+    "        \"orders\": [\"Mobile\", \"Laptop\", \"Mouse\"]\n",
+    "    },\n",
+    "\n",
+    "    \"Customer2\": {\n",
+    "        \"name\": \"Ahmed\",\n",
+    "        \"orders\": [\"Keyboard\", \"Mouse\"]\n",
+    "    },\n",
+    "\n",
+    "    \"Customer3\": {\n",
+    "        \"name\": \"Sara\",\n",
+    "        \"orders\": [\"Phone\", \"Tablet\"]\n",
+    "    }\n",
+    "}\n",
+    "\n",
+    "try:\n",
+    "    customer = input(\"Enter customer ID: \")\n",
+    "\n",
+    "    name = customers[customer][\"name\"]\n",
+    "    orders = customers[customer][\"orders\"]\n",
+    "\n",
+    "    index = int(input(\"Enter order index: \"))\n",
+    "\n",
+    "    if not isinstance(orders, list):\n",
+    "        raise TypeError(\"Orders must be stored in a list.\")\n",
+    "\n",
+    "    print(\"\\nCustomer Name:\", name)\n",
+    "    print(\"Selected Order:\", orders[index])\n",
+    "\n",
+    "except KeyError:\n",
+    "    print(\"Error: Customer information not found.\")\n",
+    "\n",
+    "except IndexError:\n",
+    "    print(\"Error: Invalid order index.\")\n",
+    "\n",
+    "except ValueError:\n",
+    "    print(\"Error: Please enter a valid numeric index.\")\n",
+    "\n",
+    "except TypeError:\n",
+    "    print(\"Error: Incorrect data type.\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "8277fbfa",
+   "metadata": {
+    "id": "8277fbfa"
+   },
+   "source": [
+    "## Write a program to create and save a sales report into a file. Use `else` to report successful file creation and `finally` to guarantee the required cleanup or final status message."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "id": "ed55c835",
+   "metadata": {
+    "id": "ed55c835"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Sales report created successfully!\n",
+      "File operation process completed.\n"
+     ]
+    }
+   ],
+   "source": [
+    "try:\n",
+    "    file = open(\"sales_report.txt\", \"w\")\n",
+    "\n",
+    "    file.write(\"----- Sales Report -----\\n\")\n",
+    "    file.write(\"Product: Laptop\\n\")\n",
+    "    file.write(\"Quantity: 2\\n\")\n",
+    "    file.write(\"Price: 100000\\n\")\n",
+    "    file.write(\"Total Sales: 200000\\n\")\n",
+    "\n",
+    "except IOError:\n",
+    "    print(\"Error! Unable to create sales report.\")\n",
+    "\n",
+    "else:\n",
+    "    print(\"Sales report created successfully!\")\n",
+    "\n",
+    "finally:\n",
+    "    try:\n",
+    "        file.close()\n",
+    "    except NameError:\n",
+    "        pass\n",
+    "\n",
+    "    print(\"File operation process completed.\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "71bbb417",
+   "metadata": {
+    "id": "71bbb417"
+   },
+   "source": [
+    "## Write a program that repeatedly asks the user to enter a valid product price. Invalid input should not terminate the program. Continue asking until a valid price is entered."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "id": "5e35cb27",
+   "metadata": {
+    "id": "5e35cb27"
+   },
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter product price:  45000\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Valid Product Price: Rs. 45000.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "while True:\n",
+    "    try:\n",
+    "        price = float(input(\"Enter product price: \"))\n",
+    "\n",
+    "        if price <= 0:\n",
+    "            print(\"Invalid price! Please enter a positive amount.\")\n",
+    "            continue\n",
+    "\n",
+    "        print(\"Valid Product Price: Rs.\", price)\n",
+    "        break\n",
+    "\n",
+    "    except ValueError:\n",
+    "        print(\"Invalid input! Please enter numbers only.\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "03ce31f0",
+   "metadata": {
+    "id": "03ce31f0"
+   },
+   "source": [
+    "## Write a program to validate a loan application. Use `raise` to reject invalid business conditions such as an invalid age, invalid income, or an excessive loan amount."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 24,
+   "id": "c9352f2d",
+   "metadata": {
+    "id": "c9352f2d"
+   },
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter your age:  18\n",
+      "Enter your monthly income:  25000\n",
+      "Enter loan amount:  50000\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Loan Application Successful!\n",
+      "Age: 18\n",
+      "Monthly Income: Rs. 25000.0\n",
+      "Loan Amount: Rs. 50000.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "try:\n",
+    "    age = int(input(\"Enter your age: \"))\n",
+    "    income = float(input(\"Enter your monthly income: \"))\n",
+    "    loan = float(input(\"Enter loan amount: \"))\n",
+    "\n",
+    "    if age < 18:\n",
+    "        raise ValueError(\"Age must be 18 or above.\")\n",
+    "\n",
+    "    if income <= 0:\n",
+    "        raise ValueError(\"Income must be greater than zero.\")\n",
+    "\n",
+    "    if loan <= 0:\n",
+    "        raise ValueError(\"Loan amount must be positive.\")\n",
+    "\n",
+    "    if loan > income * 12:\n",
+    "        raise ValueError(\"Loan amount is too high.\")\n",
+    "\n",
+    "    print(\"\\nLoan Application Successful!\")\n",
+    "    print(\"Age:\", age)\n",
+    "    print(\"Monthly Income: Rs.\", income)\n",
+    "    print(\"Loan Amount: Rs.\", loan)\n",
+    "\n",
+    "except ValueError as e:\n",
+    "    print(\"Loan Application Rejected:\", e)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "405bc752",
+   "metadata": {
+    "id": "405bc752"
+   },
+   "source": [
+    "## Create a custom exception class for an age eligibility error. Write a program that uses this exception when a student is not eligible for a training program."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "id": "ac260662",
+   "metadata": {
+    "id": "ac260662"
+   },
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter student age:  20\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Student is eligible for the training program!\n"
+     ]
+    }
+   ],
+   "source": [
+    "class AgeEligibilityError(Exception):\n",
+    "    pass\n",
+    "\n",
+    "\n",
+    "try:\n",
+    "    age = int(input(\"Enter student age: \"))\n",
+    "\n",
+    "    if age < 18:\n",
+    "        raise AgeEligibilityError(\"Student is not eligible for the training program.\")\n",
+    "\n",
+    "    print(\"Student is eligible for the training program!\")\n",
+    "\n",
+    "except AgeEligibilityError as e:\n",
+    "    print(\"Eligibility Error:\", e)\n",
+    "\n",
+    "except ValueError:\n",
+    "    print(\"Invalid input! Please enter a valid age.\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "8282bf4e",
+   "metadata": {
+    "id": "8282bf4e"
+   },
+   "source": [
+    "## Create multiple custom exception classes for an online payment system. Handle invalid payment amount, insufficient balance, and unsupported payment method as different business errors."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "id": "e237b583",
+   "metadata": {
+    "id": "e237b583"
+   },
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter payment amount:  67000\n",
+      "Enter payment method (Cash/Card):  cash\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Payment Error: Your account balance is insufficient.\n"
+     ]
+    }
+   ],
+   "source": [
+    "class InvalidPaymentAmount(Exception):\n",
+    "    pass\n",
+    "\n",
+    "class InsufficientBalance(Exception):\n",
+    "    pass\n",
+    "\n",
+    "class UnsupportedPaymentMethod(Exception):\n",
+    "    pass\n",
+    "\n",
+    "\n",
+    "try:\n",
+    "    balance = 5000\n",
+    "\n",
+    "    amount = float(input(\"Enter payment amount: \"))\n",
+    "    method = input(\"Enter payment method (Cash/Card): \")\n",
+    "\n",
+    "    if amount <= 0:\n",
+    "        raise InvalidPaymentAmount(\"Payment amount must be greater than zero.\")\n",
+    "\n",
+    "    if amount > balance:\n",
+    "        raise InsufficientBalance(\"Your account balance is insufficient.\")\n",
+    "\n",
+    "    if method not in [\"Cash\", \"Card\"]:\n",
+    "        raise UnsupportedPaymentMethod(\"Payment method is not supported.\")\n",
+    "\n",
+    "    balance = balance - amount\n",
+    "\n",
+    "    print(\"\\nPayment Successful!\")\n",
+    "    print(\"Payment Amount: Rs.\", amount)\n",
+    "    print(\"Payment Method:\", method)\n",
+    "    print(\"Remaining Balance: Rs.\", balance)\n",
+    "\n",
+    "except InvalidPaymentAmount as e:\n",
+    "    print(\"Payment Error:\", e)\n",
+    "\n",
+    "except InsufficientBalance as e:\n",
+    "    print(\"Payment Error:\", e)\n",
+    "\n",
+    "except UnsupportedPaymentMethod as e:\n",
+    "    print(\"Payment Error:\", e)\n",
+    "\n",
+    "except ValueError:\n",
+    "    print(\"Invalid input! Please enter a valid amount.\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "7b0d77cb",
+   "metadata": {
+    "id": "7b0d77cb"
+   },
+   "source": [
+    "## Create a class-based bank account system. Handle deposits and withdrawals using custom exceptions for invalid transaction amounts and insufficient balance."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "id": "d56fb5a7",
+   "metadata": {
+    "id": "d56fb5a7"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1. Deposit\n",
+      "2. Withdraw\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter your choice:  Withdraw\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Please enter a valid number.\n"
+     ]
+    }
+   ],
+   "source": [
+    "class InvalidTransactionAmount(Exception):\n",
+    "    pass\n",
+    "\n",
+    "\n",
+    "class InsufficientBalance(Exception):\n",
+    "    pass\n",
+    "\n",
+    "\n",
+    "class BankAccount:\n",
+    "\n",
+    "    def __init__(self, balance):\n",
+    "        self.balance = balance\n",
+    "\n",
+    "    def deposit(self, amount):\n",
+    "        if amount <= 0:\n",
+    "            raise InvalidTransactionAmount(\n",
+    "                \"Deposit amount must be greater than zero.\"\n",
+    "            )\n",
+    "\n",
+    "        self.balance += amount\n",
+    "        print(\"Amount deposited successfully!\")\n",
+    "\n",
+    "    def withdraw(self, amount):\n",
+    "        if amount <= 0:\n",
+    "            raise InvalidTransactionAmount(\n",
+    "                \"Withdrawal amount must be greater than zero.\"\n",
+    "            )\n",
+    "\n",
+    "        if amount > self.balance:\n",
+    "            raise InsufficientBalance(\n",
+    "                \"Insufficient balance!\"\n",
+    "            )\n",
+    "\n",
+    "        self.balance -= amount\n",
+    "        print(\"Amount withdrawn successfully!\")\n",
+    "\n",
+    "    def show_balance(self):\n",
+    "        print(\"Current Balance: Rs.\", self.balance)\n",
+    "\n",
+    "\n",
+    "try:\n",
+    "    account = BankAccount(5000)\n",
+    "\n",
+    "    print(\"1. Deposit\")\n",
+    "    print(\"2. Withdraw\")\n",
+    "\n",
+    "    choice = int(input(\"Enter your choice: \"))\n",
+    "    amount = float(input(\"Enter amount: \"))\n",
+    "\n",
+    "    if choice == 1:\n",
+    "        account.deposit(amount)\n",
+    "\n",
+    "    elif choice == 2:\n",
+    "        account.withdraw(amount)\n",
+    "\n",
+    "    else:\n",
+    "        print(\"Invalid choice!\")\n",
+    "\n",
+    "    account.show_balance()\n",
+    "\n",
+    "except InvalidTransactionAmount as e:\n",
+    "    print(\"Transaction Error:\", e)\n",
+    "\n",
+    "except InsufficientBalance as e:\n",
+    "    print(\"Transaction Error:\", e)\n",
+    "\n",
+    "except ValueError:\n",
+    "    print(\"Please enter a valid number.\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "46bc3e5a",
+   "metadata": {
+    "id": "46bc3e5a"
+   },
+   "source": [
+    "## Create an e-commerce order system that handles invalid products, invalid quantities, insufficient stock, and invalid payments. Use custom exceptions for business-rule failures."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 28,
+   "id": "6da0691f",
+   "metadata": {
+    "id": "6da0691f"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Available Products:\n",
+      "Laptop - Rs. 80000\n",
+      "Mobile - Rs. 40000\n",
+      "Headphones - Rs. 3000\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Enter product name:  Laptop\n",
+      "Enter quantity:  3\n",
+      "Enter payment method (Cash/Card):  Cash\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Order placed successfully!\n",
+      "Product: Laptop\n",
+      "Quantity: 3\n",
+      "Total Amount: Rs. 240000\n",
+      "Payment Method: Cash\n"
+     ]
+    }
+   ],
+   "source": [
+    "class InvalidProduct(Exception):\n",
+    "    pass\n",
+    "\n",
+    "\n",
+    "class InvalidQuantity(Exception):\n",
+    "    pass\n",
+    "\n",
+    "\n",
+    "class InsufficientStock(Exception):\n",
+    "    pass\n",
+    "\n",
+    "\n",
+    "class InvalidPayment(Exception):\n",
+    "    pass\n",
+    "\n",
+    "\n",
+    "class Ecommerce:\n",
+    "\n",
+    "    def __init__(self):\n",
+    "        self.products = {\n",
+    "            \"Laptop\": {\"price\": 80000, \"stock\": 5},\n",
+    "            \"Mobile\": {\"price\": 40000, \"stock\": 10},\n",
+    "            \"Headphones\": {\"price\": 3000, \"stock\": 8}\n",
+    "        }\n",
+    "\n",
+    "    def place_order(self, product, quantity, payment):\n",
+    "\n",
+    "        if product not in self.products:\n",
+    "            raise InvalidProduct(\"Product is not available.\")\n",
+    "\n",
+    "        if quantity <= 0:\n",
+    "            raise InvalidQuantity(\"Quantity must be greater than zero.\")\n",
+    "\n",
+    "        if quantity > self.products[product][\"stock\"]:\n",
+    "            raise InsufficientStock(\"Not enough stock available.\")\n",
+    "\n",
+    "        if payment not in [\"Cash\", \"Card\"]:\n",
+    "            raise InvalidPayment(\"Invalid payment method.\")\n",
+    "\n",
+    "        total = self.products[product][\"price\"] * quantity\n",
+    "\n",
+    "        self.products[product][\"stock\"] -= quantity\n",
+    "\n",
+    "        print(\"\\nOrder placed successfully!\")\n",
+    "        print(\"Product:\", product)\n",
+    "        print(\"Quantity:\", quantity)\n",
+    "        print(\"Total Amount: Rs.\", total)\n",
+    "        print(\"Payment Method:\", payment)\n",
+    "\n",
+    "\n",
+    "try:\n",
+    "    shop = Ecommerce()\n",
+    "\n",
+    "    print(\"Available Products:\")\n",
+    "    print(\"Laptop - Rs. 80000\")\n",
+    "    print(\"Mobile - Rs. 40000\")\n",
+    "    print(\"Headphones - Rs. 3000\")\n",
+    "\n",
+    "    product = input(\"\\nEnter product name: \")\n",
+    "    quantity = int(input(\"Enter quantity: \"))\n",
+    "    payment = input(\"Enter payment method (Cash/Card): \")\n",
+    "\n",
+    "    shop.place_order(product, quantity, payment)\n",
+    "\n",
+    "except InvalidProduct as e:\n",
+    "    print(\"Order Error:\", e)\n",
+    "\n",
+    "except InvalidQuantity as e:\n",
+    "    print(\"Order Error:\", e)\n",
+    "\n",
+    "except InsufficientStock as e:\n",
+    "    print(\"Order Error:\", e)\n",
+    "\n",
+    "except InvalidPayment as e:\n",
+    "    print(\"Order Error:\", e)\n",
+    "\n",
+    "except ValueError:\n",
+    "    print(\"Invalid input! Please enter a valid quantity.\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "fcfbdaf7",
+   "metadata": {
+    "id": "fcfbdaf7"
+   },
+   "source": [
+    "## ### University Course Registration System\n",
+    "\n",
+    "### Goal:\n",
+    "Create a program that allows students to register for university courses.\n",
+    "\n",
+    "### Steps:\n",
+    "- Store students and courses.\n",
+    "- Check whether the student exists.\n",
+    "- Check whether the course exists.\n",
+    "- Prevent duplicate registration.\n",
+    "- Check course capacity.\n",
+    "- Check prerequisites.\n",
+    "- Create and handle suitable custom exceptions.\n",
+    "\n",
+    "### Example:\n",
+    "Student ID: 102\n",
+    "Course: Python\n",
+    "→ Registration successful"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "id": "83fa15ba",
+   "metadata": {
+    "id": "83fa15ba"
+   },
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter Student ID:  103\n",
+      "Enter Course Name:  Python\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Registration Successful!\n",
+      "Student Name: Sara\n",
+      "Student ID: 103\n",
+      "Course: Python\n"
+     ]
+    }
+   ],
+   "source": [
+    "class StudentNotFound(Exception):\n",
+    "    pass\n",
+    "\n",
+    "\n",
+    "class CourseNotFound(Exception):\n",
+    "    pass\n",
+    "\n",
+    "\n",
+    "class DuplicateRegistration(Exception):\n",
+    "    pass\n",
+    "\n",
+    "\n",
+    "class CourseFull(Exception):\n",
+    "    pass\n",
+    "\n",
+    "\n",
+    "class PrerequisiteNotCompleted(Exception):\n",
+    "    pass\n",
+    "\n",
+    "\n",
+    "class University:\n",
+    "\n",
+    "    def __init__(self):\n",
+    "        self.students = {\n",
+    "            101: \"Ali\",\n",
+    "            102: \"Ahmed\",\n",
+    "            103: \"Sara\"\n",
+    "        }\n",
+    "\n",
+    "        self.courses = {\n",
+    "            \"Python\": {\n",
+    "                \"capacity\": 2,\n",
+    "                \"registered\": [],\n",
+    "                \"prerequisite\": None\n",
+    "            },\n",
+    "\n",
+    "            \"OOP\": {\n",
+    "                \"capacity\": 2,\n",
+    "                \"registered\": [],\n",
+    "                \"prerequisite\": \"Python\"\n",
+    "            },\n",
+    "\n",
+    "            \"Database\": {\n",
+    "                \"capacity\": 3,\n",
+    "                \"registered\": [],\n",
+    "                \"prerequisite\": None\n",
+    "            }\n",
+    "        }\n",
+    "\n",
+    "        self.completed_courses = {\n",
+    "            101: [\"Python\"],\n",
+    "            102: [],\n",
+    "            103: [\"Python\"]\n",
+    "        }\n",
+    "\n",
+    "    def register_course(self, student_id, course):\n",
+    "\n",
+    "        if student_id not in self.students:\n",
+    "            raise StudentNotFound(\"Student does not exist.\")\n",
+    "\n",
+    "        if course not in self.courses:\n",
+    "            raise CourseNotFound(\"Course does not exist.\")\n",
+    "\n",
+    "        if student_id in self.courses[course][\"registered\"]:\n",
+    "            raise DuplicateRegistration(\n",
+    "                \"Student is already registered in this course.\"\n",
+    "            )\n",
+    "\n",
+    "        if len(self.courses[course][\"registered\"]) >= self.courses[course][\"capacity\"]:\n",
+    "            raise CourseFull(\"Course capacity is full.\")\n",
+    "\n",
+    "        prerequisite = self.courses[course][\"prerequisite\"]\n",
+    "\n",
+    "        if prerequisite is not None:\n",
+    "            if prerequisite not in self.completed_courses.get(student_id, []):\n",
+    "                raise PrerequisiteNotCompleted(\n",
+    "                    \"Prerequisite course is not completed.\"\n",
+    "                )\n",
+    "\n",
+    "        self.courses[course][\"registered\"].append(student_id)\n",
+    "\n",
+    "        print(\"\\nRegistration Successful!\")\n",
+    "        print(\"Student Name:\", self.students[student_id])\n",
+    "        print(\"Student ID:\", student_id)\n",
+    "        print(\"Course:\", course)\n",
+    "\n",
+    "\n",
+    "try:\n",
+    "    university = University()\n",
+    "\n",
+    "    student_id = int(input(\"Enter Student ID: \"))\n",
+    "    course = input(\"Enter Course Name: \")\n",
+    "\n",
+    "    university.register_course(student_id, course)\n",
+    "\n",
+    "except StudentNotFound as e:\n",
+    "    print(\"Registration Error:\", e)\n",
+    "\n",
+    "except CourseNotFound as e:\n",
+    "    print(\"Registration Error:\", e)\n",
+    "\n",
+    "except DuplicateRegistration as e:\n",
+    "    print(\"Registration Error:\", e)\n",
+    "\n",
+    "except CourseFull as e:\n",
+    "    print(\"Registration Error:\", e)\n",
+    "\n",
+    "except PrerequisiteNotCompleted as e:\n",
+    "    print(\"Registration Error:\", e)\n",
+    "\n",
+    "except ValueError:\n",
+    "    print(\"Invalid input! Student ID must be a number.\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "510973b4",
+   "metadata": {
+    "id": "510973b4"
+   },
+   "source": [
+    "## ### Hospital Appointment System\n",
+    "\n",
+    "### Goal:\n",
+    "Create a program that manages hospital appointments.\n",
+    "\n",
+    "### Steps:\n",
+    "- Store patients and doctors.\n",
+    "- Validate patient and doctor information.\n",
+    "- Check doctor availability.\n",
+    "- Prevent duplicate appointment times.\n",
+    "- Create custom exceptions for important business errors.\n",
+    "- Handle invalid input without crashing.\n",
+    "\n",
+    "### Example:\n",
+    "Patient ID: P102\n",
+    "Doctor: D05\n",
+    "Time: 10:30 AM\n",
+    "→ Appointment booked successfully"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 30,
+   "id": "68a5a899",
+   "metadata": {
+    "id": "68a5a899"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Available Patients: P101, P102, P103\n",
+      "Available Doctors: D05, D06\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Enter Patient ID:  P101\n",
+      "Enter Doctor ID:  D06\n",
+      "Enter Appointment Time:  2:00\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Booking Error: Doctor is not available at this time.\n"
+     ]
+    }
+   ],
+   "source": [
+    "class PatientNotFound(Exception):\n",
+    "    pass\n",
+    "\n",
+    "\n",
+    "class DoctorNotFound(Exception):\n",
+    "    pass\n",
+    "\n",
+    "\n",
+    "class DoctorNotAvailable(Exception):\n",
+    "    pass\n",
+    "\n",
+    "\n",
+    "class DuplicateAppointment(Exception):\n",
+    "    pass\n",
+    "\n",
+    "\n",
+    "class InvalidAppointmentTime(Exception):\n",
+    "    pass\n",
+    "\n",
+    "\n",
+    "class Hospital:\n",
+    "\n",
+    "    def __init__(self):\n",
+    "        self.patients = {\n",
+    "            \"P101\": \"Ali\",\n",
+    "            \"P102\": \"Ahmed\",\n",
+    "            \"P103\": \"Sara\"\n",
+    "        }\n",
+    "\n",
+    "        self.doctors = {\n",
+    "            \"D05\": \"Dr. Ahmed\",\n",
+    "            \"D06\": \"Dr. Sara\"\n",
+    "        }\n",
+    "\n",
+    "        self.available_times = {\n",
+    "            \"D05\": [\"10:30 AM\", \"11:30 AM\", \"12:30 PM\"],\n",
+    "            \"D06\": [\"10:30 AM\", \"01:00 PM\", \"02:00 PM\"]\n",
+    "        }\n",
+    "\n",
+    "        self.appointments = []\n",
+    "\n",
+    "    def book_appointment(self, patient_id, doctor_id, time):\n",
+    "\n",
+    "        if patient_id not in self.patients:\n",
+    "            raise PatientNotFound(\"Patient does not exist.\")\n",
+    "\n",
+    "        if doctor_id not in self.doctors:\n",
+    "            raise DoctorNotFound(\"Doctor does not exist.\")\n",
+    "\n",
+    "        if time not in self.available_times[doctor_id]:\n",
+    "            raise DoctorNotAvailable(\"Doctor is not available at this time.\")\n",
+    "\n",
+    "        for appointment in self.appointments:\n",
+    "            if appointment[\"doctor\"] == doctor_id and appointment[\"time\"] == time:\n",
+    "                raise DuplicateAppointment(\n",
+    "                    \"This appointment time is already booked.\"\n",
+    "                )\n",
+    "\n",
+    "            if appointment[\"patient\"] == patient_id and appointment[\"time\"] == time:\n",
+    "                raise DuplicateAppointment(\n",
+    "                    \"Patient already has an appointment at this time.\"\n",
+    "                )\n",
+    "\n",
+    "        self.appointments.append({\n",
+    "            \"patient\": patient_id,\n",
+    "            \"doctor\": doctor_id,\n",
+    "            \"time\": time\n",
+    "        })\n",
+    "\n",
+    "        print(\"\\nAppointment Booked Successfully!\")\n",
+    "        print(\"Patient Name:\", self.patients[patient_id])\n",
+    "        print(\"Patient ID:\", patient_id)\n",
+    "        print(\"Doctor:\", self.doctors[doctor_id])\n",
+    "        print(\"Appointment Time:\", time)\n",
+    "\n",
+    "\n",
+    "try:\n",
+    "    hospital = Hospital()\n",
+    "\n",
+    "    print(\"Available Patients: P101, P102, P103\")\n",
+    "    print(\"Available Doctors: D05, D06\")\n",
+    "\n",
+    "    patient_id = input(\"\\nEnter Patient ID: \").upper()\n",
+    "    doctor_id = input(\"Enter Doctor ID: \").upper()\n",
+    "    time = input(\"Enter Appointment Time: \").upper()\n",
+    "\n",
+    "    hospital.book_appointment(patient_id, doctor_id, time)\n",
+    "\n",
+    "except PatientNotFound as e:\n",
+    "    print(\"Booking Error:\", e)\n",
+    "\n",
+    "except DoctorNotFound as e:\n",
+    "    print(\"Booking Error:\", e)\n",
+    "\n",
+    "except DoctorNotAvailable as e:\n",
+    "    print(\"Booking Error:\", e)\n",
+    "\n",
+    "except DuplicateAppointment as e:\n",
+    "    print(\"Booking Error:\", e)\n",
+    "\n",
+    "except InvalidAppointmentTime as e:\n",
+    "    print(\"Booking Error:\", e)\n",
+    "\n",
+    "except ValueError:\n",
+    "    print(\"Invalid input! Please enter correct information.\")\n",
+    "\n",
+    "except Exception as e:\n",
+    "    print(\"Unexpected Error:\", e)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "ba39b682",
+   "metadata": {
+    "id": "ba39b682"
+   },
+   "source": [
+    "## ### Digital Wallet System\n",
+    "\n",
+    "### Goal:\n",
+    "Create a class-based digital wallet application.\n",
+    "\n",
+    "### Steps:\n",
+    "- Validate wallet ID and PIN.\n",
+    "- Handle inactive accounts.\n",
+    "- Validate transfer amounts.\n",
+    "- Check balance.\n",
+    "- Enforce a transfer limit.\n",
+    "- Create multiple custom exceptions.\n",
+    "- Make sure failed transfers do not change wallet balances.\n",
+    "\n",
+    "### Example:\n",
+    "Transfer: Rs. 2,000\n",
+    "→ Transfer successful"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 31,
+   "id": "3cc78b84",
+   "metadata": {
+    "id": "3cc78b84"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Available Wallets: W101, W102, W103\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter Sender Wallet ID:  W102\n",
+      "Enter PIN:  234567\n",
+      "Enter Receiver Wallet ID:  56789\n",
+      "Enter Transfer Amount:  50000\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Wallet Error: Receiver wallet does not exist.\n"
+     ]
+    }
+   ],
+   "source": [
+    "class InvalidWalletID(Exception):\n",
+    "    pass\n",
+    "\n",
+    "\n",
+    "class InvalidPIN(Exception):\n",
+    "    pass\n",
+    "\n",
+    "\n",
+    "class InactiveAccount(Exception):\n",
+    "    pass\n",
+    "\n",
+    "\n",
+    "class InvalidAmount(Exception):\n",
+    "    pass\n",
+    "\n",
+    "\n",
+    "class InsufficientBalance(Exception):\n",
+    "    pass\n",
+    "\n",
+    "\n",
+    "class TransferLimitExceeded(Exception):\n",
+    "    pass\n",
+    "\n",
+    "\n",
+    "class DigitalWallet:\n",
+    "\n",
+    "    def __init__(self):\n",
+    "        self.wallets = {\n",
+    "            \"W101\": {\n",
+    "                \"pin\": \"1234\",\n",
+    "                \"balance\": 10000,\n",
+    "                \"active\": True\n",
+    "            },\n",
+    "\n",
+    "            \"W102\": {\n",
+    "                \"pin\": \"5678\",\n",
+    "                \"balance\": 5000,\n",
+    "                \"active\": True\n",
+    "            },\n",
+    "\n",
+    "            \"W103\": {\n",
+    "                \"pin\": \"9999\",\n",
+    "                \"balance\": 3000,\n",
+    "                \"active\": False\n",
+    "            }\n",
+    "        }\n",
+    "\n",
+    "        self.transfer_limit = 5000\n",
+    "\n",
+    "    def transfer(self, sender_id, pin, receiver_id, amount):\n",
+    "\n",
+    "        # Check sender wallet\n",
+    "        if sender_id not in self.wallets:\n",
+    "            raise InvalidWalletID(\"Sender wallet does not exist.\")\n",
+    "\n",
+    "        # Check receiver wallet\n",
+    "        if receiver_id not in self.wallets:\n",
+    "            raise InvalidWalletID(\"Receiver wallet does not exist.\")\n",
+    "\n",
+    "        # Validate PIN\n",
+    "        if self.wallets[sender_id][\"pin\"] != pin:\n",
+    "            raise InvalidPIN(\"Incorrect wallet PIN.\")\n",
+    "\n",
+    "        # Check account status\n",
+    "        if not self.wallets[sender_id][\"active\"]:\n",
+    "            raise InactiveAccount(\"Sender account is inactive.\")\n",
+    "\n",
+    "        if not self.wallets[receiver_id][\"active\"]:\n",
+    "            raise InactiveAccount(\"Receiver account is inactive.\")\n",
+    "\n",
+    "        # Validate transfer amount\n",
+    "        if amount <= 0:\n",
+    "            raise InvalidAmount(\"Transfer amount must be greater than zero.\")\n",
+    "\n",
+    "        # Check transfer limit\n",
+    "        if amount > self.transfer_limit:\n",
+    "            raise TransferLimitExceeded(\"Transfer limit is Rs. 5000.\")\n",
+    "\n",
+    "        # Check balance\n",
+    "        if amount > self.wallets[sender_id][\"balance\"]:\n",
+    "            raise InsufficientBalance(\"Insufficient wallet balance.\")\n",
+    "\n",
+    "        # Update balances after all checks pass\n",
+    "        self.wallets[sender_id][\"balance\"] -= amount\n",
+    "        self.wallets[receiver_id][\"balance\"] += amount\n",
+    "\n",
+    "        print(\"\\nTransfer Successful!\")\n",
+    "        print(\"Transferred Amount: Rs.\", amount)\n",
+    "        print(\"Sender Balance: Rs.\", self.wallets[sender_id][\"balance\"])\n",
+    "        print(\"Receiver Balance: Rs.\", self.wallets[receiver_id][\"balance\"])\n",
+    "\n",
+    "\n",
+    "try:\n",
+    "    wallet = DigitalWallet()\n",
+    "\n",
+    "    print(\"Available Wallets: W101, W102, W103\")\n",
+    "\n",
+    "    sender_id = input(\"Enter Sender Wallet ID: \").upper()\n",
+    "    pin = input(\"Enter PIN: \")\n",
+    "    receiver_id = input(\"Enter Receiver Wallet ID: \").upper()\n",
+    "    amount = float(input(\"Enter Transfer Amount: \"))\n",
+    "\n",
+    "    wallet.transfer(sender_id, pin, receiver_id, amount)\n",
+    "\n",
+    "except InvalidWalletID as e:\n",
+    "    print(\"Wallet Error:\", e)\n",
+    "\n",
+    "except InvalidPIN as e:\n",
+    "    print(\"Wallet Error:\", e)\n",
+    "\n",
+    "except InactiveAccount as e:\n",
+    "    print(\"Wallet Error:\", e)\n",
+    "\n",
+    "except InvalidAmount as e:\n",
+    "    print(\"Wallet Error:\", e)\n",
+    "\n",
+    "except InsufficientBalance as e:\n",
+    "    print(\"Wallet Error:\", e)\n",
+    "\n",
+    "except TransferLimitExceeded as e:\n",
+    "    print(\"Wallet Error:\", e)\n",
+    "\n",
+    "except ValueError:\n",
+    "    print(\"Invalid input! Please enter a valid amount.\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "b69e30d0",
+   "metadata": {
+    "id": "b69e30d0"
+   },
+   "source": [
+    "## ### Retail Inventory and Sales System\n",
+    "\n",
+    "### Task:\n",
+    "Create a menu-driven inventory and sales application.\n",
+    "\n",
+    "The program should allow the user to:\n",
+    "- Add stock\n",
+    "- View inventory\n",
+    "- Sell products\n",
+    "- Search for products\n",
+    "\n",
+    "Handle invalid input, missing products, invalid quantities, and insufficient stock. Use `raise`, custom exceptions, `else`, and `finally` where appropriate.\n",
+    "\n",
+    "The application should continue running after recoverable errors."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 32,
+   "id": "2c2f04f2",
+   "metadata": {
+    "id": "2c2f04f2"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "===== RETAIL INVENTORY SYSTEM =====\n",
+      "1. Add Stock\n",
+      "2. View Inventory\n",
+      "3. Sell Product\n",
+      "4. Search Product\n",
+      "5. Exit\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Enter your choice:  Add stock\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Invalid input! Please enter a valid number.\n",
+      "Inventory System Operation Finished.\n",
+      "\n",
+      "===== RETAIL INVENTORY SYSTEM =====\n",
+      "1. Add Stock\n",
+      "2. View Inventory\n",
+      "3. Sell Product\n",
+      "4. Search Product\n",
+      "5. Exit\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Enter your choice:  Exit\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Invalid input! Please enter a valid number.\n",
+      "Inventory System Operation Finished.\n",
+      "\n",
+      "===== RETAIL INVENTORY SYSTEM =====\n",
+      "1. Add Stock\n",
+      "2. View Inventory\n",
+      "3. Sell Product\n",
+      "4. Search Product\n",
+      "5. Exit\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Enter your choice:  Sell product\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Invalid input! Please enter a valid number.\n",
+      "Inventory System Operation Finished.\n",
+      "\n",
+      "===== RETAIL INVENTORY SYSTEM =====\n",
+      "1. Add Stock\n",
+      "2. View Inventory\n",
+      "3. Sell Product\n",
+      "4. Search Product\n",
+      "5. Exit\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Enter your choice:  Exit\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Invalid input! Please enter a valid number.\n",
+      "Inventory System Operation Finished.\n",
+      "\n",
+      "===== RETAIL INVENTORY SYSTEM =====\n",
+      "1. Add Stock\n",
+      "2. View Inventory\n",
+      "3. Sell Product\n",
+      "4. Search Product\n",
+      "5. Exit\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Enter your choice:  surf\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Invalid input! Please enter a valid number.\n",
+      "Inventory System Operation Finished.\n",
+      "\n",
+      "===== RETAIL INVENTORY SYSTEM =====\n",
+      "1. Add Stock\n",
+      "2. View Inventory\n",
+      "3. Sell Product\n",
+      "4. Search Product\n",
+      "5. Exit\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Enter your choice:  excel\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Invalid input! Please enter a valid number.\n",
+      "Inventory System Operation Finished.\n",
+      "\n",
+      "===== RETAIL INVENTORY SYSTEM =====\n",
+      "1. Add Stock\n",
+      "2. View Inventory\n",
+      "3. Sell Product\n",
+      "4. Search Product\n",
+      "5. Exit\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Enter your choice:  brush\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Invalid input! Please enter a valid number.\n",
+      "Inventory System Operation Finished.\n",
+      "\n",
+      "===== RETAIL INVENTORY SYSTEM =====\n",
+      "1. Add Stock\n",
+      "2. View Inventory\n",
+      "3. Sell Product\n",
+      "4. Search Product\n",
+      "5. Exit\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Enter your choice:  4\n",
+      "Enter product name:  surf\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Error: Product does not exist.\n",
+      "Inventory System Operation Finished.\n",
+      "\n",
+      "===== RETAIL INVENTORY SYSTEM =====\n",
+      "1. Add Stock\n",
+      "2. View Inventory\n",
+      "3. Sell Product\n",
+      "4. Search Product\n",
+      "5. Exit\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Enter your choice:  3\n",
+      "Enter product name:  2\n",
+      "Enter quantity to sell:  5\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Error: Product does not exist.\n",
+      "Inventory System Operation Finished.\n",
+      "\n",
+      "===== RETAIL INVENTORY SYSTEM =====\n",
+      "1. Add Stock\n",
+      "2. View Inventory\n",
+      "3. Sell Product\n",
+      "4. Search Product\n",
+      "5. Exit\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Enter your choice:  6\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Invalid choice! Please select 1 to 5.\n",
+      "Operation completed successfully.\n",
+      "Inventory System Operation Finished.\n",
+      "\n",
+      "===== RETAIL INVENTORY SYSTEM =====\n",
+      "1. Add Stock\n",
+      "2. View Inventory\n",
+      "3. Sell Product\n",
+      "4. Search Product\n",
+      "5. Exit\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Enter your choice:  8\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Invalid choice! Please select 1 to 5.\n",
+      "Operation completed successfully.\n",
+      "Inventory System Operation Finished.\n",
+      "\n",
+      "===== RETAIL INVENTORY SYSTEM =====\n",
+      "1. Add Stock\n",
+      "2. View Inventory\n",
+      "3. Sell Product\n",
+      "4. Search Product\n",
+      "5. Exit\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Enter your choice:  2\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "----- INVENTORY -----\n",
+      "Product: Laptop\n",
+      "Price: Rs. 80000\n",
+      "Stock: 5\n",
+      "--------------------\n",
+      "Product: Mobile\n",
+      "Price: Rs. 40000\n",
+      "Stock: 10\n",
+      "--------------------\n",
+      "Product: Headphones\n",
+      "Price: Rs. 3000\n",
+      "Stock: 8\n",
+      "--------------------\n",
+      "Operation completed successfully.\n",
+      "Inventory System Operation Finished.\n",
+      "\n",
+      "===== RETAIL INVENTORY SYSTEM =====\n",
+      "1. Add Stock\n",
+      "2. View Inventory\n",
+      "3. Sell Product\n",
+      "4. Search Product\n",
+      "5. Exit\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Enter your choice:  1\n",
+      "Enter product name:  1\n",
+      "Enter quantity to add:  1\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Error: Product does not exist.\n",
+      "Inventory System Operation Finished.\n",
+      "\n",
+      "===== RETAIL INVENTORY SYSTEM =====\n",
+      "1. Add Stock\n",
+      "2. View Inventory\n",
+      "3. Sell Product\n",
+      "4. Search Product\n",
+      "5. Exit\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Enter your choice:  3\n",
+      "Enter product name:  3\n",
+      "Enter quantity to sell:  3\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Error: Product does not exist.\n",
+      "Inventory System Operation Finished.\n",
+      "\n",
+      "===== RETAIL INVENTORY SYSTEM =====\n",
+      "1. Add Stock\n",
+      "2. View Inventory\n",
+      "3. Sell Product\n",
+      "4. Search Product\n",
+      "5. Exit\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Enter your choice:  5\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Thank you for using the system!\n",
+      "Inventory System Operation Finished.\n"
+     ]
+    }
+   ],
+   "source": [
+    "class ProductNotFound(Exception):\n",
+    "    pass\n",
+    "\n",
+    "\n",
+    "class InvalidQuantity(Exception):\n",
+    "    pass\n",
+    "\n",
+    "\n",
+    "class InsufficientStock(Exception):\n",
+    "    pass\n",
+    "\n",
+    "\n",
+    "class RetailInventory:\n",
+    "\n",
+    "    def __init__(self):\n",
+    "        self.inventory = {\n",
+    "            \"Laptop\": {\"price\": 80000, \"stock\": 5},\n",
+    "            \"Mobile\": {\"price\": 40000, \"stock\": 10},\n",
+    "            \"Headphones\": {\"price\": 3000, \"stock\": 8}\n",
+    "        }\n",
+    "\n",
+    "    def add_stock(self, product, quantity):\n",
+    "\n",
+    "        if product not in self.inventory:\n",
+    "            raise ProductNotFound(\"Product does not exist.\")\n",
+    "\n",
+    "        if quantity <= 0:\n",
+    "            raise InvalidQuantity(\"Quantity must be greater than zero.\")\n",
+    "\n",
+    "        self.inventory[product][\"stock\"] += quantity\n",
+    "\n",
+    "        print(\"Stock added successfully!\")\n",
+    "\n",
+    "    def view_inventory(self):\n",
+    "\n",
+    "        print(\"\\n----- INVENTORY -----\")\n",
+    "\n",
+    "        for product, details in self.inventory.items():\n",
+    "            print(\"Product:\", product)\n",
+    "            print(\"Price: Rs.\", details[\"price\"])\n",
+    "            print(\"Stock:\", details[\"stock\"])\n",
+    "            print(\"--------------------\")\n",
+    "\n",
+    "    def sell_product(self, product, quantity):\n",
+    "\n",
+    "        if product not in self.inventory:\n",
+    "            raise ProductNotFound(\"Product does not exist.\")\n",
+    "\n",
+    "        if quantity <= 0:\n",
+    "            raise InvalidQuantity(\"Quantity must be greater than zero.\")\n",
+    "\n",
+    "        if quantity > self.inventory[product][\"stock\"]:\n",
+    "            raise InsufficientStock(\"Not enough stock available.\")\n",
+    "\n",
+    "        total = self.inventory[product][\"price\"] * quantity\n",
+    "\n",
+    "        self.inventory[product][\"stock\"] -= quantity\n",
+    "\n",
+    "        print(\"\\nSale Successful!\")\n",
+    "        print(\"Product:\", product)\n",
+    "        print(\"Quantity:\", quantity)\n",
+    "        print(\"Total Bill: Rs.\", total)\n",
+    "\n",
+    "    def search_product(self, product):\n",
+    "\n",
+    "        if product not in self.inventory:\n",
+    "            raise ProductNotFound(\"Product does not exist.\")\n",
+    "\n",
+    "        print(\"\\nProduct Found!\")\n",
+    "        print(\"Name:\", product)\n",
+    "        print(\"Price: Rs.\", self.inventory[product][\"price\"])\n",
+    "        print(\"Available Stock:\", self.inventory[product][\"stock\"])\n",
+    "\n",
+    "\n",
+    "# Main Program\n",
+    "\n",
+    "shop = RetailInventory()\n",
+    "\n",
+    "while True:\n",
+    "\n",
+    "    print(\"\\n===== RETAIL INVENTORY SYSTEM =====\")\n",
+    "    print(\"1. Add Stock\")\n",
+    "    print(\"2. View Inventory\")\n",
+    "    print(\"3. Sell Product\")\n",
+    "    print(\"4. Search Product\")\n",
+    "    print(\"5. Exit\")\n",
+    "\n",
+    "    try:\n",
+    "        choice = int(input(\"\\nEnter your choice: \"))\n",
+    "\n",
+    "        if choice == 1:\n",
+    "\n",
+    "            product = input(\"Enter product name: \").title()\n",
+    "            quantity = int(input(\"Enter quantity to add: \"))\n",
+    "\n",
+    "            shop.add_stock(product, quantity)\n",
+    "\n",
+    "        elif choice == 2:\n",
+    "\n",
+    "            shop.view_inventory()\n",
+    "\n",
+    "        elif choice == 3:\n",
+    "\n",
+    "            product = input(\"Enter product name: \").title()\n",
+    "            quantity = int(input(\"Enter quantity to sell: \"))\n",
+    "\n",
+    "            shop.sell_product(product, quantity)\n",
+    "\n",
+    "        elif choice == 4:\n",
+    "\n",
+    "            product = input(\"Enter product name: \").title()\n",
+    "\n",
+    "            shop.search_product(product)\n",
+    "\n",
+    "        elif choice == 5:\n",
+    "\n",
+    "            print(\"Thank you for using the system!\")\n",
+    "            break\n",
+    "\n",
+    "        else:\n",
+    "            print(\"Invalid choice! Please select 1 to 5.\")\n",
+    "\n",
+    "    except ProductNotFound as e:\n",
+    "        print(\"Error:\", e)\n",
+    "\n",
+    "    except InvalidQuantity as e:\n",
+    "        print(\"Error:\", e)\n",
+    "\n",
+    "    except InsufficientStock as e:\n",
+    "        print(\"Error:\", e)\n",
+    "\n",
+    "    except ValueError:\n",
+    "        print(\"Invalid input! Please enter a valid number.\")\n",
+    "\n",
+    "    else:\n",
+    "        print(\"Operation completed successfully.\")\n",
+    "\n",
+    "    finally:\n",
+    "        print(\"Inventory System Operation Finished.\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "b2e9cd7a",
+   "metadata": {
+    "id": "b2e9cd7a"
+   },
+   "source": [
+    "## ### Food Delivery Application\n",
+    "\n",
+    "### Goal:\n",
+    "Create a complete console-based food delivery application using exception handling.\n",
+    "\n",
+    "### Steps:\n",
+    "- Register customers.\n",
+    "- Select a restaurant.\n",
+    "- Display menu items.\n",
+    "- Take item quantities.\n",
+    "- Validate stock.\n",
+    "- Validate minimum order amount.\n",
+    "- Validate delivery area.\n",
+    "- Process payment.\n",
+    "- Create custom exception classes for business-rule failures.\n",
+    "- Use `try`, specific `except` blocks, `else`, `finally`, and `raise`.\n",
+    "- Prevent invalid operations from partially changing important application data.\n",
+    "\n",
+    "### Example:\n",
+    "Customer: Ali\n",
+    "Restaurant: ABC Foods\n",
+    "Item: Burger\n",
+    "Quantity: 2\n",
+    "→ Order placed successfully"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "3c2a44e1",
+   "metadata": {
+    "id": "3c2a44e1"
+   },
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter customer name:  ubaid\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Customer registered successfully!\n",
+      "\n",
+      "Available Restaurants:\n",
+      "- ABC Foods\n",
+      "- Fast Food\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Select restaurant:  Sharma\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Restaurant Error: Restaurant not found!\n",
+      "\n",
+      "Thank you for using Food Delivery Application!\n"
+     ]
+    }
+   ],
+   "source": [
+    "\n",
+    "# Food Delivery Application\n",
+    "\n",
+    "# Custom Exception Classes\n",
+    "\n",
+    "class InvalidCustomer(Exception):\n",
+    "    pass\n",
+    "\n",
+    "class InvalidRestaurant(Exception):\n",
+    "    pass\n",
+    "\n",
+    "class OutOfStock(Exception):\n",
+    "    pass\n",
+    "\n",
+    "class MinimumOrderError(Exception):\n",
+    "    pass\n",
+    "\n",
+    "class InvalidDeliveryArea(Exception):\n",
+    "    pass\n",
+    "\n",
+    "class InsufficientBalance(Exception):\n",
+    "    pass\n",
+    "\n",
+    "\n",
+    "# Application Data\n",
+    "\n",
+    "restaurants = {\n",
+    "    \"ABC Foods\": {\n",
+    "        \"Burger\": {\"price\": 500, \"stock\": 10},\n",
+    "        \"Pizza\": {\"price\": 1200, \"stock\": 5},\n",
+    "        \"Fries\": {\"price\": 200, \"stock\": 15}\n",
+    "    },\n",
+    "    \"Fast Food\": {\n",
+    "        \"Burger\": {\"price\": 450, \"stock\": 8},\n",
+    "        \"Biryani\": {\"price\": 350, \"stock\": 10},\n",
+    "        \"Cold Drink\": {\"price\": 150, \"stock\": 20}\n",
+    "    }\n",
+    "}\n",
+    "\n",
+    "delivery_areas = [\"Karachi\", \"Lahore\", \"Islamabad\"]\n",
+    "\n",
+    "minimum_order = 500\n",
+    "\n",
+    "balance = 10000\n",
+    "\n",
+    "\n",
+    "try:\n",
+    "    # Customer Registration\n",
+    "\n",
+    "    customer = input(\"Enter customer name: \")\n",
+    "\n",
+    "    if customer.strip() == \"\":\n",
+    "        raise InvalidCustomer(\"Customer name cannot be empty!\")\n",
+    "\n",
+    "    print(\"\\nCustomer registered successfully!\")\n",
+    "\n",
+    "    # Restaurant Selection\n",
+    "\n",
+    "    print(\"\\nAvailable Restaurants:\")\n",
+    "\n",
+    "    for restaurant in restaurants:\n",
+    "        print(\"-\", restaurant)\n",
+    "\n",
+    "    selected_restaurant = input(\"\\nSelect restaurant: \")\n",
+    "\n",
+    "    if selected_restaurant not in restaurants:\n",
+    "        raise InvalidRestaurant(\"Restaurant not found!\")\n",
+    "\n",
+    "    menu = restaurants[selected_restaurant]\n",
+    "\n",
+    "    # Display Menu\n",
+    "\n",
+    "    print(\"\\n----- MENU -----\")\n",
+    "\n",
+    "    for item, details in menu.items():\n",
+    "        print(item, \"- Rs.\", details[\"price\"],\n",
+    "              \"- Stock:\", details[\"stock\"])\n",
+    "\n",
+    "    # Select Food Item\n",
+    "\n",
+    "    selected_item = input(\"\\nEnter food item: \")\n",
+    "\n",
+    "    if selected_item not in menu:\n",
+    "        raise ValueError(\"Food item not available!\")\n",
+    "\n",
+    "    quantity = int(input(\"Enter quantity: \"))\n",
+    "\n",
+    "    if quantity <= 0:\n",
+    "        raise ValueError(\"Quantity must be greater than zero!\")\n",
+    "\n",
+    "    # Stock Validation\n",
+    "\n",
+    "    if quantity > menu[selected_item][\"stock\"]:\n",
+    "        raise OutOfStock(\"Sorry! Not enough stock available.\")\n",
+    "\n",
+    "    # Calculate Bill\n",
+    "\n",
+    "    price = menu[selected_item][\"price\"]\n",
+    "    total = price * quantity\n",
+    "\n",
+    "    print(\"\\nTotal Amount: Rs.\", total)\n",
+    "\n",
+    "    # Minimum Order Validation\n",
+    "\n",
+    "    if total < minimum_order:\n",
+    "        raise MinimumOrderError(\n",
+    "            \"Minimum order amount is Rs. 500!\"\n",
+    "        )\n",
+    "\n",
+    "    # Delivery Area Validation\n",
+    "\n",
+    "    print(\"\\nAvailable Delivery Areas:\")\n",
+    "\n",
+    "    for area in delivery_areas:\n",
+    "        print(\"-\", area)\n",
+    "\n",
+    "    area = input(\"\\nEnter delivery area: \")\n",
+    "\n",
+    "    if area not in delivery_areas:\n",
+    "        raise InvalidDeliveryArea(\"Delivery area not available!\")\n",
+    "\n",
+    "    # Payment Processing\n",
+    "\n",
+    "    print(\"\\nAvailable Balance: Rs.\", balance)\n",
+    "\n",
+    "    if total > balance:\n",
+    "        raise InsufficientBalance(\"Insufficient payment balance!\")\n",
+    "\n",
+    "    payment = input(\"Confirm payment? (yes/no): \")\n",
+    "\n",
+    "    if payment.lower() != \"yes\":\n",
+    "        raise ValueError(\"Payment cancelled!\")\n",
+    "\n",
+    "    # Update Data Only After All Validations\n",
+    "\n",
+    "    balance -= total\n",
+    "    menu[selected_item][\"stock\"] -= quantity\n",
+    "\n",
+    "except InvalidCustomer as e:\n",
+    "    print(\"Customer Error:\", e)\n",
+    "\n",
+    "except InvalidRestaurant as e:\n",
+    "    print(\"Restaurant Error:\", e)\n",
+    "\n",
+    "except OutOfStock as e:\n",
+    "    print(\"Stock Error:\", e)\n",
+    "\n",
+    "except MinimumOrderError as e:\n",
+    "    print(\"Order Error:\", e)\n",
+    "\n",
+    "except InvalidDeliveryArea as e:\n",
+    "    print(\"Delivery Error:\", e)\n",
+    "\n",
+    "except InsufficientBalance as e:\n",
+    "    print(\"Payment Error:\", e)\n",
+    "\n",
+    "except ValueError as e:\n",
+    "    print(\"Input Error:\", e)\n",
+    "\n",
+    "except Exception as e:\n",
+    "    print(\"Unexpected Error:\", e)\n",
+    "\n",
+    "else:\n",
+    "    print(\"\\n========== ORDER CONFIRMED ==========\")\n",
+    "    print(\"Customer:\", customer)\n",
+    "    print(\"Restaurant:\", selected_restaurant)\n",
+    "    print(\"Food Item:\", selected_item)\n",
+    "    print(\"Quantity:\", quantity)\n",
+    "    print(\"Delivery Area:\", area)\n",
+    "    print(\"Total Bill: Rs.\", total)\n",
+    "    print(\"Payment: Successful\")\n",
+    "    print(\"Order placed successfully!\")\n",
+    "\n",
+    "finally:\n",
+    "    print(\"\\nThank you for using Food Delivery Application!\")\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "183d260d-6707-4bc0-8a11-7b5e2492ff32",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "colab": {
+   "include_colab_link": true,
+   "provenance": []
+  },
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.14.6"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
